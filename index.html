@@ -11,19 +11,42 @@
   </head>
   <body>
     <div class="container">
-      <div class="menu">
+      <div class="row">
+        <div class="col-md-6, menu">
+          <div class="mobile-menu">
+            <a class="menu-hamburger">
+              <span class="layer top"></span>
+              <span class="layer mid"></span>
+              <span class="layer btm"></span>
+            </a>
 
+            <div class="menu-panel">
+              <ul>
+                <li><a href="#">link 1</a></li>
+                <li><a href="#">link 2</a></li>
+                <li><a href="#">link 3</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <h2>Logo</h2>
+
+          <h3></h3>
+        </div>
+
+        <div class="col-md-6">
+          <div id="map">
+
+          </div>
+        </div>
       </div>
 
-      <div id="map">
-
-      </div>
     </div>
-
     <!-- JS Resources -->
-    <script src="js/script.js"></script>
-    <script src="js/libs/knockout.js"></script>
     <script src="js/libs/jquery.min.js"></script>
+    <script src="js/libs/knockout.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/ham_menu.js"></script>
 
     <!-- Google Maps API -->
     <script async defer
