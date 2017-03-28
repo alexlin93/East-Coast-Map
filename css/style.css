@@ -1,7 +1,8 @@
 body {
   font: normal 14px Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
   margin: 0;
-  background-color: #66c5c8;
+  background-color: #f4f5f7;
+  padding-top: 50px;
 }
 
 a {
@@ -9,8 +10,36 @@ a {
   text-decoration: none;
 }
 
-.menu {
+/* Main Menu */
 
+@media only screen and (max-width: 759px) {
+  body {
+  font: normal 14px Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+  margin: 0;
+  background-color: #f4f5f7;
+  padding-top: 120px;
+  }
+
+  .main-menu {
+    display: none;
+  }
+}
+
+.main-menu {
+  background-color: #fff;
+}
+
+#show-pins, #hide-pins {
+  display: block;
+  width: 150px;
+}
+
+/* Map */
+
+#map {
+  bottom:0px;
+  height: 100%;
+  position: absolute;
 }
 
 /* Hamburger Menu for Mobile and Tablet*/
@@ -34,7 +63,7 @@ ul {
   height: 42px;
   padding: 5px;
   width: 40px;
-
+  margin-left: 0;
   background-color: rgba(33,40,44,.1);
   border-bottom-right-radius: 10px;
   color: #fff;
@@ -45,18 +74,18 @@ ul {
 }
 
 .mobile-menu.is-open {
-  height: 150px;
-  width: 100px;
+  height: 700px;
+  width: 180px;
 }
 
 .menu-panel {
-  margin-left: -100px;
+  margin-left: -300px;
 }
 .is-open .menu-panel {
   margin-left: 0;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 760px) {
   .mobile-menu {
     display: none;
   }

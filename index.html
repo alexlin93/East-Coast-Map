@@ -6,9 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSS Resources-->
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
   </head>
+
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img src="img/noun_20685_cc.svg" alt="logo" height="50" width="100">
+        </a>
+      </div>
+
+      <p class="navbar-text navbar-right">
+        <h1>ECCP Interactive Map</h1>
+      </p>
+    </div>
+  </nav>
+
   <body>
     <div class="container">
       <div class="row">
@@ -21,17 +36,17 @@
             </a>
 
             <div class="menu-panel">
-              <ul>
-                <li><a href="#">link 1</a></li>
-                <li><a href="#">link 2</a></li>
-                <li><a href="#">link 3</a></li>
-              </ul>
+              <button class="btn-success" id="show-pins">Show Churches</button>
+              <button class="btn-danger" id="hide-pins">Hide Churches</button>
             </div>
           </div>
 
-          <h2>Logo</h2>
-
-          <h3></h3>
+          <div class="main-menu">
+            <h2>East Coast Church Plants</h2>
+            <button class="btn-success" id="show-pins">Show Churches</button>
+            <button class="btn-danger" id="hide-pins">Hide Churches</button>
+            <hr>
+          </div>
         </div>
 
         <div class="col-md-6">
