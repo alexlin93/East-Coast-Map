@@ -11,7 +11,7 @@
   </head>
 
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+    <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
           <img src="img/noun_20685_cc.svg" alt="logo" height="50" width="100">
@@ -25,9 +25,9 @@
   </nav>
 
   <body>
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
-        <div class="col-md-6, menu">
+        <div class="menu">
           <div class="mobile-menu">
             <a class="menu-hamburger">
               <span class="layer top"></span>
@@ -36,32 +36,41 @@
             </a>
 
             <div class="menu-panel">
-              <button class="btn-success" id="show-pins">Show Churches</button>
-              <button class="btn-danger" id="hide-pins">Hide Churches</button>
+              <ul id="schoolList" data-bind="foreach: schoolOptions">
+                <button class="btn-default, school-btn" data-bind="click: $parent.setmarker">
+                  <span data-bind="text: name"></span>
+                </button>
+                <br>
+                <br>
+              </ul>
             </div>
           </div>
 
           <div class="main-menu">
-            <h2>East Coast Church Plants</h2>
-            <button class="btn-success" id="show-pins">Show Churches</button>
-            <button class="btn-danger" id="hide-pins">Hide Churches</button>
+            <h3>Click to view a church plant on the map!</h3>
+
             <hr>
+
+            <ul id="schoolList" data-bind="foreach: schoolOptions">
+              <button class="btn-default" data-bind="click: $parent.setmarker">
+
+                <span data-bind="text: name"></span>
+              </button>
+            </ul>
           </div>
         </div>
 
-        <div class="col-md-6">
-          <div id="map">
-
-          </div>
-        </div>
+        <div class="col-lg-12" id="map"></div>
       </div>
 
     </div>
     <!-- JS Resources -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/knockout.js"></script>
+    <script src="js/models/schools.js"></script>
+    <script src="js/views/map.js"></script>
+    <script src="js/views/ham_menu.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/ham_menu.js"></script>
 
     <!-- Google Maps API -->
     <script async defer
