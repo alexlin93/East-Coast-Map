@@ -11,17 +11,7 @@
   </head>
 
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#">
-          <img src="img/noun_20685_cc.svg" alt="logo" height="50" width="100">
-        </a>
-      </div>
-
-      <p class="navbar-text navbar-right">
-        <h1>ECCP Interactive Map</h1>
-      </p>
-    </div>
+      <h1>ECCP Interactive Map</h1>
   </nav>
 
   <body>
@@ -36,8 +26,10 @@
             </a>
 
             <div class="menu-panel">
+              <h4>Click on a college for more information!</h4>
+              <hr>
               <ul id="schoolList" data-bind="foreach: schoolOptions">
-                <button class="btn-default, school-btn" data-bind="click: $parent.setmarker">
+                <button class="btn-default" data-bind="click: $parent.setmarker">
                   <span data-bind="text: name"></span>
                 </button>
                 <br>
@@ -45,9 +37,9 @@
               </ul>
             </div>
           </div>
-
+          <!-- For Desktop -->
           <div class="main-menu">
-            <h3>Click to view a church plant on the map!</h3>
+            <h4>Click on a college for more information!</h4>
 
             <hr>
 

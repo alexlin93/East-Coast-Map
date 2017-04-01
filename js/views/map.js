@@ -4,9 +4,13 @@ var map, bounds;
 
 function initMap() {
     // Constructor that creates a new map with specified center and zoom.
-    map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 7,
-        center: {lat: 38.9076708, lng: -77.0715752},
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 12,
+        center: {lat: 39.768403, lng: -86.158068},
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          position: google.maps.ControlPosition.TOP_RIGHT
+        }
     });
 
     bounds = new google.maps.LatLngBounds();

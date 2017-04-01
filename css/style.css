@@ -24,7 +24,8 @@ a {
 
 .main-menu {
   background-color: #fff;
-  padding: 40px;
+  opacity: 0.85;
+  padding: 20px;
   width: 300px;
 }
 
@@ -75,7 +76,7 @@ ul {
 }
 
 .mobile-menu.is-open {
-  height: 700px;
+  height: 485px;
   width: 200px;
 }
 

@@ -14,7 +14,9 @@ function viewModel() {
         self.selectedSchool(this.name);
         schools.forEach(function(obj, key) {
             // markers[key].setIcon();
-            new google.maps.event.trigger(markers[key], 'click');
+            if (obj.title == self.selectedSchool()) {
+              new google.maps.event.trigger(markers[key], 'click');
+            }
         });
     };
 }
