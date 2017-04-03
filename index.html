@@ -26,11 +26,15 @@
             </a>
 
             <div class="menu-panel">
-              <h4>Click on a college for more information!</h4>
-              <hr>
+            <div class="dropDown">Filter by state:
+              <select id="stateList" data-bind="options: states, value: selectedState, event: {change: filter}"></select>
+            </div>
+
+            <hr>
+
               <ul id="schoolList" data-bind="foreach: schoolOptions">
                 <button class="btn-default" data-bind="click: $parent.setmarker">
-                  <span data-bind="text: name"></span>
+                  <span data-bind="text: title"></span>
                 </button>
                 <br>
                 <br>
@@ -39,14 +43,16 @@
           </div>
           <!-- For Desktop -->
           <div class="main-menu">
-            <h4>Click on a college for more information!</h4>
+            <div class="dropDown">Filter by state:
+              <select id="stateList" data-bind="options: states, value: selectedState, event: {change: filter}"></select>
+            </div>
 
             <hr>
 
             <ul id="schoolList" data-bind="foreach: schoolOptions">
-              <button class="btn-default" data-bind="click: $parent.setmarker">
+              <button class="btn-block" data-bind="click: $parent.setmarker">
 
-                <span data-bind="text: name"></span>
+                <span data-bind="text: title"></span>
               </button>
             </ul>
           </div>
@@ -67,7 +73,7 @@
     <!-- Google Maps API -->
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBJ9Wz6XPCX-8IoJ-pvhzrLWllTNcSz18o&v=3&callback=initMap" onerror="googleError()">
+        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBJ9Wz6XPCX-8IoJ-pvhzrLWllTNcSz18o&v=3&callback=initMap">
     </script>
   </body>
 </html>

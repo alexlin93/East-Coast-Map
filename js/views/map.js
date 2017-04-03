@@ -1,12 +1,11 @@
-// Blank array for all the markers.
 var markers = [];
 var map, bounds;
 
 function initMap() {
     // Constructor that creates a new map with specified center and zoom.
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 12,
-        center: {lat: 39.768403, lng: -86.158068},
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 7,
+        center: schools[4].location,
         mapTypeControl: true,
         mapTypeControlOptions: {
           position: google.maps.ControlPosition.TOP_RIGHT
@@ -19,7 +18,7 @@ function initMap() {
     for (var i = 0; i < schools.length; i++) {
         // Get position from the locations array.
         var position = schools[i].location;
-        var title = schools[i].name;
+        var title = schools[i].title;
         // Create markers per location and put into an array.
         var marker = new google.maps.Marker({
             position: position,
@@ -41,17 +40,19 @@ function initMap() {
     map.fitBounds(bounds);
 };
 
-// Reset infowindow to show only the marker.
+// Toggle infowindow to show the marker
 function populateInfoWindow(marker, infowindow) {
+
+    // Reset other markers
+    markers.forEach(function(obj, key) {
+      markers[key].setIcon();
+      markers[key].setAnimation(null);
+    });
+
 // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
       // Clear the infowindow content to give the streetview time to load.
-      infowindow.setContent('');
       infowindow.marker = marker;
-      // Make sure the marker property is cleared if the infowindow is closed.
-      infowindow.addListener('closeclick', function() {
-        infowindow.marker = null;
-      });
       var streetViewService = new google.maps.StreetViewService();
       var radius = 50;
       // In case the status is OK, which means the pano was found, compute the
