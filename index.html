@@ -50,7 +50,7 @@
             <hr>
 
             <ul id="schoolList" data-bind="foreach: schoolOptions">
-              <button class="btn-block" data-bind="click: $parent.setmarker">
+              <button class="btn-block" data-bind="click: $parent.setmarker" value="title">
 
                 <span data-bind="text: title"></span>
               </button>
@@ -61,7 +61,14 @@
         <div class="col-lg-12" id="map"></div>
       </div>
 
+    <div class="nytimes-container">
+      <h3 id="nytimes-header">New York Times Articles</h3>
+
+      <ul id="nytimes-articles" class="article-list">What's going on in your college?</ul>
     </div>
+
+    </div>
+
     <!-- JS Resources -->
     <script src="js/libs/jquery.min.js"></script>
     <script src="js/libs/knockout.js"></script>

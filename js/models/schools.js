@@ -3,7 +3,6 @@ var states = ko.observableArray([
   'New Jersey',
   'Pennsylvania',
   'Virginia',
-  'Washington D.C.',
   ]);
 
   // each school has the properties:
@@ -14,23 +13,23 @@ var states = ko.observableArray([
 var schools = [
   {
     title : 'Carnegie Mellon University',
-    state : 'Washington D.C.',
-    location : {lat: 38.897985, lng: -77.028252}
+    state : 'Pennsylvania',
+    location : {lat: 40.443466, lng: -79.943457}
   },
   {
     title : 'George Mason University',
     state : 'Virginia',
-    location : {lat: 38.8345098, lng: -77.31111559999999}
+    location : {lat: 38.831554, lng: -77.312089}
   },
   {
     title : 'Rutgers University',
     state : 'New Jersey',
-    location : {lat: 40.5014869, lng: -74.44705359999999}
+    location : {lat: 40.500819, lng: -74.447399}
   },
   {
     title : 'University of Pittsburgh',
     state : 'Pennsylvania',
-    location : {lat: 40.4443282, lng: -79.95315479999999}
+    location : {lat: 40.4443282, lng: -79.960835}
   },
   {
     title : 'University of Pennsylvania',

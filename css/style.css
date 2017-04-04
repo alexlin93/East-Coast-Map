@@ -10,7 +10,6 @@ body {
 }
 
 a {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -32,8 +31,28 @@ a {
 /* Streetview */
 
 #pano {
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
+}
+
+/* NY Times Container */
+
+.nytimes-container {
+  padding: 10px;
+}
+
+.article-list {
+  margin: 0;
+  padding: 0;
+}
+
+.article {
+  list-style-type: none;
+  padding:10px;
+  border-top: 1px solid #CCC;
+}
+.article:first-child {
+  border-top:none;
 }
 
 /* Map */

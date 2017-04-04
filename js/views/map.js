@@ -54,7 +54,7 @@ function populateInfoWindow(marker, infowindow) {
       // Clear the infowindow content to give the streetview time to load.
       infowindow.marker = marker;
       var streetViewService = new google.maps.StreetViewService();
-      var radius = 50;
+      var radius = 100;
       // In case the status is OK, which means the pano was found, compute the
       // position of the streetview image, then calculate the heading, then get a
       // panorama from that and set the options
@@ -78,8 +78,9 @@ function populateInfoWindow(marker, infowindow) {
             '<div>No Street View Found</div>');
         }
       }
+
       // Use streetview service to get the closest streetview image within
-      // 50 meters of the markers position
+      // 100 meters of the markers position
       streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
       // Open the infowindow on the correct marker.
       infowindow.open(map, marker);

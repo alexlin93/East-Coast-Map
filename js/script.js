@@ -33,10 +33,44 @@ function viewModel() {
       schools.forEach(function(obj, key) {
         if (obj.title === self.selectedSchool()) {
           new google.maps.event.trigger(markers[key], 'click');
+
+          var $nytHeaderElem = $('#nytimes-header');
+          var $nytElem = $('#nytimes-articles');
+
+          // clear out old data before new request
+          $nytElem.text("");
+
+          var college = obj.title;
+
+          var nytURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+          nytURL += '?' + $.param({
+              'api-key': "a95a6716530741a9b3561d0c3ab53d58",
+              'q': college,
+              'sort': "newest"
+          });
+
+          $.getJSON(nytURL)
+              .done(function(data) {
+                  $nytHeaderElem.text('New York Times Articles About ' + college)
+                      ;
+
+                  articles = data.response.docs;
+                  for (var i = 0; i < articles.length; i++) {
+                      var article = articles[i];
+                      $nytElem.append('<li class="article">' +
+                          '<a href="' + article.web_url + '">' + article.headline.main +
+                              '</a>' +
+                          '<p>' + article.snippet + '</p>' +
+                      '</li>');
+                      }
+              })
+              .fail(function(e) {
+                  $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
+          });
         }
       });
     };
-};
+}
 
 ko.applyBindings(new viewModel());
 
