@@ -17,7 +17,7 @@
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="menu">
+        <aside class="menu">
           <div class="mobile-menu">
             <a class="menu-hamburger">
               <span class="layer top"></span>
@@ -32,15 +32,15 @@
 
             <hr>
 
-              <ul id="schoolList" data-bind="foreach: schoolOptions">
-                <button class="btn-default" data-bind="click: $parent.setmarker">
-                  <span data-bind="text: title"></span>
-                </button>
-                <br>
-                <br>
-              </ul>
-            </div>
+            <ul id="schoolList" data-bind="foreach: schoolOptions">
+              <button class="btn-default" data-bind="click: $parent.setmarker">
+                <span data-bind="text: title"></span>
+              </button>
+              <br>
+              <br>
+            </ul>
           </div>
+
           <!-- For Desktop -->
           <div class="main-menu">
             <div class="dropDown">Filter by state:
@@ -56,11 +56,11 @@
               </button>
             </ul>
           </div>
-        </div>
+        </aside>
 
-        <div class="col-lg-12" id="map"></div>
+        <main class="col-lg-12" id="map"></main>
+
       </div>
-
     </div>
 
     <!-- JS Resources -->
