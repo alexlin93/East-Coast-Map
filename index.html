@@ -32,15 +32,15 @@
 
             <hr>
 
-            <ul id="schoolList" data-bind="foreach: schoolOptions">
-              <button class="btn-default" data-bind="click: $parent.setmarker">
-                <span data-bind="text: title"></span>
-              </button>
-              <br>
-              <br>
-            </ul>
+              <ul id="schoolList" data-bind="foreach: schoolOptions">
+                <button class="btn-default" data-bind="click: $parent.setmarker">
+                  <span data-bind="text: title"></span>
+                </button>
+                <br>
+                <br>
+              </ul>
+            </div>
           </div>
-
           <!-- For Desktop -->
           <div class="main-menu">
             <div class="dropDown">Filter by state:
@@ -74,7 +74,7 @@
     <!-- Google Maps API -->
     <script async defer
         src=
-        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBJ9Wz6XPCX-8IoJ-pvhzrLWllTNcSz18o&v=3&callback=initMap">
+        "https://maps.googleapis.com/maps/api/js?libraries=places,geometry,drawing&key=AIzaSyBJ9Wz6XPCX-8IoJ-pvhzrLWllTNcSz18o&v=3&callback=initMap" onerror="googleError()">
     </script>
   </body>
 </html>
