@@ -8,7 +8,7 @@ function initMap() {
         center: schools[4].location,
         mapTypeControl: true,
         mapTypeControlOptions: {
-          position: google.maps.ControlPosition.TOP_RIGHT
+            position: google.maps.ControlPosition.TOP_RIGHT
         }
     });
 
@@ -45,45 +45,62 @@ function populateInfoWindow(marker, infowindow) {
 
     // Reset other markers
     markers.forEach(function(obj, key) {
-      markers[key].setIcon();
-      markers[key].setAnimation(null);
+        markers[key].setIcon();
+        markers[key].setAnimation(null);
     });
 
-// Check to make sure the infowindow is not already opened on this marker.
+    // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
-      // Clear the infowindow content to give the streetview time to load.
-      infowindow.marker = marker;
-      var streetViewService = new google.maps.StreetViewService();
-      var radius = 100;
-      // In case the status is OK, which means the pano was found, compute the
-      // position of the streetview image, then calculate the heading, then get a
-      // panorama from that and set the options
-      function getStreetView(data, status) {
-        if (status == google.maps.StreetViewStatus.OK) {
-          var nearStreetViewLocation = data.location.latLng;
-          var heading = google.maps.geometry.spherical.computeHeading(
-            nearStreetViewLocation, marker.position);
-            infowindow.setContent('<div>' + marker.title + '</div><div id="pano"></div>');
-            var panoramaOptions = {
-              position: nearStreetViewLocation,
-              pov: {
-                heading: heading,
-                pitch: 30
-              }
-            };
-          var panorama = new google.maps.StreetViewPanorama(
-            document.getElementById('pano'), panoramaOptions);
-        } else {
-          infowindow.setContent('<div>' + marker.title + '</div>' +
-            '<div>No Street View Found</div>');
-        }
-      }
+        // Clear the infowindow content to give the streetview time to load.
+        infowindow.marker = marker;
+        // NY Times API empty variables.
+        var search = marker.title;
+        var nytTitle, nytLink;
+        // Function highlight will animate the marker with Bounce and fill infowindow.
+        var highlight = function() {
+            marker.setAnimation(google.maps.Animation.BOUNCE);
+            infowindow.setContent('<div><h3>' +
+                search +
+                '</h3><hr><img src="img/' + search + '.jpg" alt="' + search + '"width="300px"><hr>' +
+                '<h4>Recent NY Times Articles:</h4>' +
+                '<ul><a target="_blank" href="' +
+                nytLink +
+                '">' +
+                nytTitle +
+                '!</a></ul></div>');
+            infowindow.open(map, marker);
+            // Make sure the marker property is cleared if the infowindow is closed.
+            infowindow.addListener('closeclick', function() {
+                infowindow.highlight = null;
+                marker.setAnimation(null);
+            });
+        };
+        // Function searchNYT will load articles about the marker.title (school's name).
+        var searchNYT = function(search) {
+            var nytURL = 'https://api.nytimes.com/svc/search/v2/articlesearch.json';
+            nytURL += '?' + $.param({
+                'api-key': "a95a6716530741a9b3561d0c3ab53d58",
+                'q': search,
+                'sort': "newest"
+            });
 
-      // Use streetview service to get the closest streetview image within
-      // 100 meters of the markers position
-      streetViewService.getPanoramaByLocation(marker.position, radius, getStreetView);
-      // Open the infowindow on the correct marker.
-      infowindow.open(map, marker);
-    }
-  }
-
+            $.getJSON(nytURL)
+                .done(function(data) {
+                    if (data[0] !== 'undefined') {
+                        articles = data.response.docs;
+                        for (var i = 0; i < articles.length; i++) {
+                            var article = articles[i];
+                            nytTitle = article.headline.main;
+                            nytLink = article.web_url;
+                        }
+                        highlight();
+                    }
+                })
+                .fail(function(data) {
+                    nytTitle = "Failed to load articles";
+                    highlight();
+                });
+        };
+        searchNYT(search);
+    };
+};

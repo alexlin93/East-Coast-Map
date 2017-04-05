@@ -5,13 +5,13 @@ body {
   padding-top: 50px;
 }
 
-.container {
-  display: flex;
-}
-
 a {
   text-decoration: none;
 }
+
+/* Top Nav Bar */
+
+
 
 /* Main Menu */
 
@@ -119,6 +119,12 @@ ul {
 @media only screen and (min-width: 760px) {
   .mobile-menu {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 342px) {
+  .menu {
+    padding-top: 50px;
   }
 }
 
