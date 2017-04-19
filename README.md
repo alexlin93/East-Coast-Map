@@ -1,5 +1,7 @@
 # ECCP Interactive Map Project
 
+Visit this app at: https://alexlin93.github.io/East-Coast-Map/
+
 ## About
 This is the Neighborhood Map project for the Udacity Full Stack Nanodegree program.
 The app includes the following:
